@@ -29,6 +29,7 @@ public class Test09 {
 		int[] a1= {1,1};
 		System.out.println(maxArea(a1));
 	}
+	//1st approch
 	public static int maxArea(int[] a) {
 		int i=0;
 		int j=a.length-1;
@@ -43,6 +44,18 @@ public class Test09 {
 				i++;
 			else
 				j--;
+		}
+		return maxArea;
+	}
+	//2nd approch
+	public static int maxArea1(int[] a) {
+		
+		int maxArea=0;
+		for(int i=0;i<a.length;i++) {
+			for(int j=i+1;j<a.length;j++) {
+				int area=(Math.min(a[i], a[j]))*(j-i);
+				maxArea=Math.max(maxArea,area);
+			}
 		}
 		return maxArea;
 	}
